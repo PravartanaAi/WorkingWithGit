@@ -100,7 +100,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GDrive" sap:VirtualizedContainerService.HintSize="876.0000000000001,3272" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GDrive" sap:VirtualizedContainerService.HintSize="876.0000000000001,3477.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="NewsLetter" />
       <Variable x:TypeArguments="gadvd:File" Name="fileDetails" />
@@ -110,13 +110,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ugad:GoogleDriveApplicationScope ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Timeout="{x:Null}" Account="Please select an account." ConnectionAccountName="pravartana.rpa.ai.nlp@gmail.com #2" ConnectionId="9ea5ee6e-7bdb-47dc-9fbb-22bb2b7265aa" DisplayName="Use Google Drive" sap:VirtualizedContainerService.HintSize="705.6,3248.8" sap2010:WorkflowViewState.IdRef="GoogleDriveApplicationScope_1" UseConnectionService="True">
+    <ugad:GoogleDriveApplicationScope ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Timeout="{x:Null}" Account="Please select an account." ConnectionAccountName="pravartana.rpa.ai.nlp@gmail.com #2" ConnectionId="9ea5ee6e-7bdb-47dc-9fbb-22bb2b7265aa" DisplayName="Use Google Drive" sap:VirtualizedContainerService.HintSize="705.6,3454.4" sap2010:WorkflowViewState.IdRef="GoogleDriveApplicationScope_1" UseConnectionService="True">
       <ugad:GoogleDriveApplicationScope.Body>
         <ActivityAction x:TypeArguments="ugad:IGoogleDriveTarget">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ugad:IGoogleDriveTarget" Name="GoogleDrive" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="672,3084" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="672,3289.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtUsers" />
             </Sequence.Variables>
@@ -126,6 +126,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <uga:GetFileInfo ContinueOnError="{x:Null}" AuthScopesInvalid="False" DisplayName="Get File Info" DriveTarget="[GoogleDrive]" FileId="[UiPathEventObjectId]" sap:VirtualizedContainerService.HintSize="638.4,113.6" sap2010:WorkflowViewState.IdRef="GetFileInfo_1" Result="[fileDetails]" SupportsTeamDrives="False" />
+            <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="638.4,205.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            </Sequence>
             <uga:DownloadFile ContinueOnError="{x:Null}" AuthScopesInvalid="False" DisplayName="Download File" DriveTarget="[GoogleDrive]" FileFriendlyName="Newsletter To Be Sent" FileId="[UiPathEventObjectId]" FileIdSelectionMode="EnterId" sap:VirtualizedContainerService.HintSize="638.4,182.4" sap2010:WorkflowViewState.IdRef="DownloadFile_2" LocalPath="[Path.GetTempPath]" SupportsTeamDrives="False" />
             <ui:LogMessage DisplayName="Log Message - File and Location" sap:VirtualizedContainerService.HintSize="638.4,124.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Downloaded file &quot; &amp; fileDetails.Name &amp; &quot; to folder &quot; &amp; Path.GetTempPath]">
               <sap:WorkflowViewStateService.ViewState>
